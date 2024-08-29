@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { FlatList } from "react-native";
 import { CardHorizontalFood } from "./food";
 
 export interface FoodProps {
@@ -13,7 +13,7 @@ export interface FoodProps {
   restaurantId: string;
 }
 
-export function TrendingFoods() {
+export function Trending() {
   const [foods, setFoods] = useState<FoodProps[]>([]);
 
   useEffect(() => {
@@ -32,8 +32,7 @@ export function TrendingFoods() {
       renderItem={({ item }) => <CardHorizontalFood food={item} />}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-      contentContainerStyle={{ gap: 10 }}
-      className="px-4 space-x-4"
+      contentContainerStyle={{ gap: 10, paddingLeft: 16, paddingRight: 16 }}
     />
   );
 }
